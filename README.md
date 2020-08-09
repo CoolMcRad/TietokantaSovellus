@@ -5,3 +5,7 @@ Ajattelin tehdä varasto tietokannan jonkinlaiselle kaupalle(vaate/peli/erikoise
 PÄIVITYS
 
 En saanut herokuun, mutta sain sovellusta aloitettua. Ei ole nätein ja on ongelmia.
+Taulut on: Käyttäjä, joka ei ole vielä käytössä, mutta tarkoituksena olisi olla admin käyttäjä
+ja lisäksi asiakkaan käyttäjä joilla on ostoskori. Sitten on tyyppi ja osasto taulut jotka jakavat tuotteet eri gategorioihin. Sitten vielä tuotteiden taulu.
+
+
