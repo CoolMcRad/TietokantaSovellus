@@ -1,17 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
+</head>
+<body>
+
 {% if session.username %}
-<p>Tervetuloa {{ session.username }}</p>
 
-Valitse osasto !
+<img src="/static/mainLogo.png">
+
+<footer>
+    <p> 
+        Kirjautunut {{ session.username }}
+        <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
+        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    </p>
+</footer>
+
+<h3>Valitse osasto !</h3>
 <hr>
-{% for nimi in osastot %}
+{% for nimi,id in osastot %}
 
-<a href="/osasto/{{ os_id }}" >{{ nimi }}</a>
+<a href="/osasto/{{ id }}" >
+<div class="box">
+    <img src="/static/osastot/{{ nimi }}.jpg" alt={{nimi}} width="700px" height="361px">
+    <h1 class="text">
+        {{nimi}}
+    </h1>
+</div>
+</a>
+
 <hr>
 {% endfor %}
-<a href="/new">Lisää tuotteita/osastoja</a>
 
-<a href="/logout">Kirjaudu ulos</a>
 {% else %}
+
 <form action="/login" method="POST">
 <p>Tunnus:<br>
 <input type="text" name="username"></p>
@@ -19,4 +42,8 @@ Valitse osasto !
 <input type="password" name="password"></p>
 <input type="submit" value="Kirjaudu">
 </form>
+
+<a href="/luoTunnus" ><button> Luo tunnus </button></a>
 {% endif %}
+</body>
+</html>

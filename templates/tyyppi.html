@@ -1,7 +1,42 @@
-Tuotteet :
-<hr>
-{% for nimi in tuotteet %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
+</head>
+<body>
 
-<a href="/tuote/{{ tu_id }}" >{{ nimi }}</a>
+<footer>
+    <p> 
+        Kirjautunut {{ session.username }} 
+        <a href="/"> <button> Etusivu </button> </a>
+        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    </p>
+</footer>
+
+{% for nimi,kuvaus in tyypit %}
+
+<h3> {{ nimi }} </h3>
+<p>{{ kuvaus }}</p>
+
+{% endfor %}
+
+<p>Tuotteet :</p>
+<hr>
+{% for nimi,id in tuotteet %}
+
+<a href="/tuote/{{ id }}" >
+    <div class="box">
+        <img src="/static/tuotteet/{{ nimi }}.jpg" alt={{nimi}} width="400px" height="206px">
+        <h1 class="text">
+            {{nimi}}
+        </h1>
+    </div>
+</a>
+
 <hr>
 {% endfor %}
+
+<a href="/">Etusivu</a>
+
+</body>
+</html>

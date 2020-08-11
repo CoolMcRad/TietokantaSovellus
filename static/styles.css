@@ -1,0 +1,137 @@
+
+  body {
+    background-color: rgba(0, 0, 0, 0.904);
+  }
+  
+  footer {
+    display: block;
+    border:8px solid black;
+    background-color: darkred;
+  }
+
+  img {
+    display: inline-block;
+    border:8px solid darkred;
+  }
+
+  form {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  arvostelu {
+    border:8px solid white;
+    padding: 10px 25px;
+    text-align: center;
+    
+    background-color: black;
+    display: inline-block;
+    font-size: 20px;
+    
+    margin-left: 20px;
+    cursor: default;
+  }
+
+  textarea {
+    border:8px solid darkred;
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.438);
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  input {
+    border:8px groove white;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    background-color: black;
+    display: inline-block;
+    font-size: 20px;
+    
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  p {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  h1 {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    margin-left: 10px;
+  }
+
+  h2 {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    margin-left: 10px;
+  }
+
+  h3 {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    margin-left: 10px;
+  }
+
+  h4 {
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    margin-left: 10px;
+  }
+
+  button {
+    border:8px groove white;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    background-color: black;
+    display: inline-block;
+    font-size: 20px;
+    
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  a:link, a:visited {
+    color: black;
+    text-decoration: solid;
+    cursor: pointer;
+  }
+  
+  a:link:active, a:visited:active {
+    color: black;
+  }
+
+  .box{
+      position: relative;
+      display: inline-block;
+  }
+  .box .text{
+      position: absolute;
+      z-index: 999;
+      margin: 0 auto;
+      left: 0;
+      right: 0;        
+      text-align: center;
+      top: 40%;
+      background: rgba(255, 255, 255, 0.603);
+      font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+      font-size: 30px;
+      color: rgb(0, 0, 0);
+      border:15px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.082);
+      width: 60%;
+  }

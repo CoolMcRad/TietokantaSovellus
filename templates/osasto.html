@@ -1,7 +1,38 @@
-Valitse tyyppi !
-<hr>
-{% for nimi in tyypit %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
+</head>
+<body>
 
-<a href="/tyyppi/{{ ty_id }}" >{{ nimi }}</a>
+<footer>
+    <p> 
+        Kirjautunut {{ session.username }} 
+        <a href="/"> <button> Etusivu </button> </a>
+        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    </p>
+</footer>
+
+{% for nimi,kuvaus in osastot %}
+
+<h3> {{ nimi }} </h3>
+<p>{{ kuvaus }}</p>
+
+{% endfor %}
+<p>Valitse tyyppi !</p>
+{% for nimi,id in tyypit %}
+
+<a href="/tyyppi/{{ id }}" >
+    <div class="box">
+        <img src="/static/tyypit/{{ nimi }}.jpg" alt={{nimi}} width="400px" height="206px">
+        <h1 class="text">
+            {{nimi}}
+        </h1>
+    </div>
+</a>
+
 <hr>
 {% endfor %}
+
+</body>
+</html>

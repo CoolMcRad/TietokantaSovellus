@@ -1,7 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
+</head>
+<body>
+
+<footer>
+    <p> 
+        Kirjautunut {{ session.username }} 
+        <a href="/"> <button> Etusivu </button> </a>
+        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    </p>
+</footer>
+
+{% for nimi,kuvaus,varastossa,hinta in tiedot %}
+
+<img src="/static/tuotteet/{{ nimi }}.jpg" width="300" height="445">
+
 <h1> {{ nimi }} </h1>
-
 <p> {{ kuvaus }} </p>
-
 <p> Hinta : {{ hinta }} $ </p>
-
 <p> Varastossa: {{ varastossa }} kappaletta. </p>
+<p> Tuotteen valmistaja: {{ tekija[0] }}. </p>
+
+{% endfor %}
+
+<form action="/send-Ar/{{ t_id }}" method="POST">
+    <h2>Luo arvostelu:</h2>
+    
+    Otsikko:
+    <br>
+    <textarea name="otsikko" rows="1" cols="40"></textarea>
+    <br>
+    Arvostelu:
+    <br>
+    <textarea name="teksti" rows="3" cols="40"></textarea>
+    <br>
+    Arvosana:
+    <br>
+    <textarea name="arvosana" rows="1" cols="5"></textarea>
+    <br>
+
+    <input type="submit" value="Lähetä">
+    </form>
+
+
+<h3> Arvostelut: </h3>
+
+{% for nimi,otsikko,teksti,arvosana,paivamaara in arvostelut %}
+
+<arvostelu>
+    <h3 > {{ otsikko }} </h3>
+    <p> {{ teksti }} </p>
+    <p style="background-color: white; color: black;" > Arvosana: {{ arvosana }}/10 </p>
+    <p> Kirjoittanut: {{ nimi }} {{ paivamaara }} </p>
+</arvostelu>
+
+{% endfor %}
+
+<a href="/">Etusivu</a>
+
+</body>
+</html>
