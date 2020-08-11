@@ -1,11 +1,15 @@
 # TietokantaSovellus
 
-Ajattelin tehdä varasto tietokannan jonkinlaiselle kaupalle(vaate/peli/erikoisempi). Erilaiset tuotteet omissa tauluissaan, myyjä tai työntekijä admini, asiakkaille voi lisätä tilauksia ja niin edespäin. Kiinnostaa kuinka paljon sovellusta voi muuttaa kurssin aikana, vaikka ihan erilaiseksi aiheeksi, jos sitten tekisi mieli tehdä jotain kiinnostavampaa.
+## The NettiStore
 
-PÄIVITYS
+Tein nettikaupan jossa on erilaisia osastoja, ei mitään kummoista.
+taulut näkee siitä schema.sql tiedostosta. Sovellus on herokussa, pitää van tehdä käyttis sinne, mutta en ole taulujen sisältöjä paljoa luonut. Niitä voi lisäillä, pitää vaan tehdä oikeassa järjestyksessä.
 
-En saanut herokuun, mutta sain sovellusta aloitettua. Ei ole nätein ja on ongelmia.
-Taulut on: Käyttäjä, joka ei ole vielä käytössä, mutta tarkoituksena olisi olla admin käyttäjä
-ja lisäksi asiakkaan käyttäjä joilla on ostoskori. Sitten on tyyppi ja osasto taulut jotka jakavat tuotteet eri gategorioihin. Sitten vielä tuotteiden taulu.
+Pitää ensin tehdä osasto, vaikka "Vaatteet". Sitten lisätä tyyppi osastolle, vaikka "Hatut".
+Sitten voi lisätä tuotteen, vaikka "Fedora". Vähän ärsyttävää on se, että pitää tietää osaston taikka tyypin id, tai tarkistaa se menemällä osaston/tyypin sivulle ja katsomalla sivuosoitetta. Pitää myös tehdä tuotteelle tekijä. Se ei ole käytössä paljoa vielä.
+
+Tuotteiden luomisen pitäisi olla super käyttäjälle tietysti, mutta lisäillä voi. Kuvat ei näy, useimmiten, en tiedä miten niitä lisäilisi ei paikallisesti.
+
+Linkki sinne sivuun: https://thenettistore.herokuapp.com/
 
 

@@ -2,7 +2,13 @@ from app import app
 import pages
 import add
 import user
-from flask import render_template, request, redirect, session
+import os
+from flask import render_template, request, redirect, session, send_from_directory
+app.add_url_rule('/favicon.ico','/favicon.ico')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def index():
