@@ -10,6 +10,7 @@ Sitten voi lisätä tuotteen, vaikka "Fedora". Vähän ärsyttävää on se, ett
 
 Tuotteiden luomisen pitäisi olla super käyttäjälle tietysti, mutta lisäillä voi. Kuvat ei näy, useimmiten, en tiedä miten niitä lisäilisi ei paikallisesti.
 
+
 Linkki sinne sivuun: https://thenettistore.herokuapp.com/
 
 

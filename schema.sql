@@ -29,8 +29,8 @@ CREATE TABLE tuotteet (
 
 CREATE TABLE kayttajat (
     id SERIAL PRIMARY KEY, 
-    nimi TEXT UNIQUE, 
-    salasana TEXT,
+    nimi TEXT UNIQUE NOT NULL, 
+    salasana TEXT NOT NULL,
     superkayttaja BOOLEAN
 );
 
@@ -42,4 +42,9 @@ CREATE TABLE arvostelut (
     kayttaja_id INTEGER REFERENCES kayttajat,
     tuote_id INTEGER REFERENCES tuotteet,
     paivamaara TIMESTAMP
+);
+
+CREATE TABLE ostoskorit (
+    id SERIAL PRIMARY KEY, 
+    
 );
