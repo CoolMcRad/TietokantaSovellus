@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
+</head>
+<body>
+
+{% if session.username %}
+
+<div class="topnav">
+    <a href="/" >
+        <h5> The </h5>
+        <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
+    </a>
+    <p style="font-style: italic;"> 
+        Kirjautunut {{ session.username }}
+    </p>
+    {% if session.super %}
+    <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
+    {% endif %}
+    <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    <a href="/ostoskori"> <button> Ostoskori </button> </a>
+    <div class="topnav-right">
+      <a href="#search">Haku</a>
+    </div>
+  </div>
+
+  
+  {% for tuote in tuotteet %}
+  <hr>
+    <h1>
+        <a href="/tuote/{{ tuote[3] }}"> {{ tuote[0] }} </a>
+        
+        <form action="/yksiPoisto/{{tuote[3] }}" method="POST">
+            <input class="delbutton" type="submit" value="Poista Korista">
+        </form>
+        <p> 
+            Hinta: {{ tuote[2] }} $ Korissa: 1    
+        </p>
+    </h1>
+</hr>
+  {% endfor %}
+
+  {% if summa != 0 %}
+    <div style="border:2px solid rgb(112, 0, 0);margin: 10px;background-color: rgba(75, 63, 63, 0.336);">
+        <form style="float: right;" action="/tilaus" method="POST">
+            <input type="submit" value="Tilaa tuotteet (EI TEE MITÄÄN)">
+        </form>
+        <p style="margin: 10px;">
+            Summa on {{ summa }} $
+            <form action="/clearKori" method="POST">
+                <input type="submit" value="Tyhjennä Kori">
+            </form>
+        </p>
+    </div>
+  {% else %}
+    <p>Ostoskori on tyhjä !</p>
+  {% endif %}
+
+{% else %}
+    <meta http-equiv="Refresh" content="0; '/'" />
+{% endif %}
+
+</body>
+</html>

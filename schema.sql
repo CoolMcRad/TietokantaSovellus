@@ -46,5 +46,7 @@ CREATE TABLE arvostelut (
 
 CREATE TABLE ostoskorit (
     id SERIAL PRIMARY KEY, 
-    
+    summa INTEGER,
+    tuotteet INTEGER[],
+    kayttaja_id INTEGER REFERENCES kayttajat
 );

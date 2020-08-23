@@ -3,13 +3,12 @@
 ## The NettiStore
 
 Tein nettikaupan jossa on erilaisia osastoja, ei mitään kummoista.
-taulut näkee siitä schema.sql tiedostosta. Sovellus on herokussa, pitää van tehdä käyttis sinne, mutta en ole taulujen sisältöjä paljoa luonut. Niitä voi lisäillä, pitää vaan tehdä oikeassa järjestyksessä.
+taulut näkee siitä schema.sql tiedostosta. Sovellus on herokussa, pitää van tehdä käyttis sinne, tai käyttistä jonka annan.
 
-Pitää ensin tehdä osasto, vaikka "Vaatteet". Sitten lisätä tyyppi osastolle, vaikka "Hatut".
-Sitten voi lisätä tuotteen, vaikka "Fedora". Vähän ärsyttävää on se, että pitää tietää osaston taikka tyypin id, tai tarkistaa se menemällä osaston/tyypin sivulle ja katsomalla sivuosoitetta. Pitää myös tehdä tuotteelle tekijä. Se ei ole käytössä paljoa vielä.
+Ostoskoriin voi lisäillä tuotteita ja voi kirjoittaa arvosteluita.
 
-Tuotteiden luomisen pitäisi olla super käyttäjälle tietysti, mutta lisäillä voi. Kuvat ei näy, useimmiten, en tiedä miten niitä lisäilisi ei paikallisesti.
-
+Käyttis: Testi
+Salasana: 123
 
 Linkki sinne sivuun: https://thenettistore.herokuapp.com/
 

@@ -1,7 +1,5 @@
 from app import app
-import pages
-import add
-import user
+from utils import pages, add, user
 import os
 from flask import render_template, request, redirect, session, send_from_directory
 app.add_url_rule('/favicon.ico','/favicon.ico')
@@ -18,6 +16,13 @@ def index():
 @app.route("/new")
 def new():
     return render_template("new.html")
+
+@app.route("/ostoskori")
+def ostoskori():
+    summa = pages.getSumma(session["username"])[0]
+    tuotteet = pages.tuotteetById(pages.koriTuotteet(session["username"]))
+
+    return render_template("ostoskori.html", summa=summa, tuotteet=tuotteet)
     
 @app.route("/luoTunnus")
 def luoTunnus():
@@ -69,10 +74,39 @@ def send_Tu():
     add.addTuote(request)
     return redirect("/new")
 
+@app.route("/send-Ostos/<int:id>", methods=["POST"])
+def send_Ostos(id):
+    k_id = pages.kayttajaByName(session["username"])[0]
+    koko = pages.koriSize(session["username"])[0]
+    summa = pages.getSumma(session["username"])[0]
+    add.lisaaKoriin(k_id, id, koko, summa)
+    return redirect("/ostoskori")
+
+@app.route("/clearKori", methods=["POST"])
+def clearKori():
+    id = pages.kayttajaByName(session["username"])[0]
+    add.tyhjennaKori(id)
+    return redirect("/ostoskori")
+
+@app.route("/yksiPoisto/<int:id>", methods=["POST"])
+def yksiPoisto(id):
+    mhm_id = pages.kayttajaByName(session["username"])[0]
+    tuotteet = pages.tuotteetPaitsi1(pages.koriTuotteet(session["username"]), id)
+    add.tyhjennaKori(mhm_id)
+    for integer in tuotteet:
+        koko = pages.koriSize(session["username"])[0]
+        summa = pages.getSumma(session["username"])[0]
+        add.lisaaKoriin(mhm_id,integer,koko,summa)
+    return redirect("/ostoskori")
+
 @app.route("/signIn",methods=["POST"])
 def signIn():
     user.newUser(request)
     return redirect("/")
+
+@app.route("/log")
+def log():
+    return render_template("login.html")
 
 @app.route("/login",methods=["POST"])
 def login():

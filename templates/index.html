@@ -14,14 +14,16 @@
         <h5> The </h5>
         <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
     </a>
-    <h4 style="font-style: italic;"> 
+    <p style="font-style: italic;"> 
         Kirjautunut {{ session.username }}
-    </h4>
+    </p>
+    {% if session.super %}
     <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
+    {% endif %}
     <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    <a href="/ostoskori"> <button> Ostoskori </button> </a>
     <div class="topnav-right">
-      <a href="#search">Search</a>
-      <a href="#about">About</a>
+      <a href="#search">Haku</a>
     </div>
   </div>
 
@@ -42,19 +44,7 @@
 {% endfor %}
 
 {% else %}
-
-<h5> The </h5>
-<h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
-
-<form action="/login" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu">
-</form>
-
-<a href="/luoTunnus" ><button> Luo tunnus </button></a>
+    <meta http-equiv="Refresh" content="0; '/log'" />
 {% endif %}
 </body>
 </html>

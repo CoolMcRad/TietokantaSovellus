@@ -5,16 +5,25 @@
 </head>
 <body>
 
-<footer>
+{% if session.username %}
+
+<div class="topnav">
     <a href="/" >
         <h5> The </h5>
         <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
     </a>
-    <p> 
-        Kirjautunut {{ session.username }} 
-        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    <p style="font-style: italic;"> 
+        Kirjautunut {{ session.username }}
     </p>
-</footer>
+    {% if session.super %}
+    <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
+    {% endif %}
+    <a href="/logout"> <button> Kirjaudu ulos </button> </a>
+    <a href="/ostoskori"> <button> Ostoskori </button> </a>
+    <div class="topnav-right">
+      <a href="#search">Haku</a>
+    </div>
+  </div>
 
 {% for nimi,kuvaus,varastossa,hinta in tiedot %}
 
@@ -25,6 +34,10 @@
 <p> Hinta : {{ hinta }} $ </p>
 <p> Varastossa: {{ varastossa }} kappaletta. </p>
 <p> Tuotteen valmistaja: {{ tekija[0] }}. </p>
+
+<form action="/send-Ostos/{{ t_id }}" method="POST">
+    <input type="submit" value="Lisää Koriin">
+    </form>
 
 {% endfor %}
 
@@ -61,7 +74,10 @@
 
 {% endfor %}
 
-<a href="/">Etusivu</a>
+
+{% else %}
+    <meta http-equiv="Refresh" content="0; '/'" />
+{% endif %}
 
 </body>
 </html>
