@@ -101,7 +101,8 @@ def yksiPoisto(id):
 
 @app.route("/signIn",methods=["POST"])
 def signIn():
-    user.newUser(request)
+    nimi = user.newUser(request)
+    add.lisaaKori(pages.kayttajaByName(nimi))
     return redirect("/")
 
 @app.route("/log")

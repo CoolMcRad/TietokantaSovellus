@@ -65,3 +65,9 @@ def poistaKorista(id, t_id, koko, summa):
 def tyhjennaKori(id):
     db.session.execute("UPDATE ostoskorit SET tuotteet = '{}', summa = 0 WHERE kayttaja_id = %d"%id)
     db.session.commit()
+
+def lisaaKori(id):
+    kayttaja_id = str(id[0])
+    sql = "INSERT INTO ostoskorit (summa, tuotteet, kayttaja_id) VALUES (0, '{}', :kayttaja_id)"
+    db.session.execute(sql, {"kayttaja_id":kayttaja_id})
+    db.session.commit()
