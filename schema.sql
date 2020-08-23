@@ -61,8 +61,16 @@ CREATE TABLE ostoskorit (
 );
 
 INSERT INTO osastot (nimi, kuvaus) VALUES ('Vaatteet', 'Vaatteita, puetaan päälle.');
+INSERT INTO osastot (nimi, kuvaus) VALUES ('Musiikki', 'Musiikki soi korvissa brr');
+INSERT INTO osastot (nimi, kuvaus) VALUES ('Pelit', 'Pelejä pelaamiseen jee');
 INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Hattuja', 'Vaatteita päälle', 1);
+INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Rummut', 'Niitä lyödään lujaa', 2);
+INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Konsolit', 'Osta PC tyhmä', 3);
 INSERT INTO tekijat (nimi, kuvaus) VALUES ('HattujaOy', 'TEHÄÄN HATTUJA');
+INSERT INTO tekijat (nimi, kuvaus) VALUES ('Yamaha', 'lalalalalala');
+INSERT INTO tekijat (nimi, kuvaus) VALUES ('Sony', 'lol');
 INSERT INTO tuotteet (nimi, kuvaus, varastossa, hinta, tekija_id, tyyppi_id) VALUES ('Fedora', 'Hassu hattu haha', 282, 131, 1, 1);
+INSERT INTO tuotteet (nimi, kuvaus, varastossa, hinta, tekija_id, tyyppi_id) VALUES ('Yamaha Rydeen Drum Set', 'Pampam very nais ääni', 1638, 725, 2, 2);
+INSERT INTO tuotteet (nimi, kuvaus, varastossa, hinta, tekija_id, tyyppi_id) VALUES ('Playstation 2', 'Oli aika tykki', 90, 243, 3, 3);
 INSERT INTO kayttajat (nimi, salasana, mod, superkayttaja) VALUES ('testi', '123', false, false);
 INSERT INTO ostoskorit (summa, tuotteet, kayttaja_id) VALUES (0, '{}', 1);

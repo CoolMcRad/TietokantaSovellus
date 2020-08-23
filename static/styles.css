@@ -2,6 +2,7 @@
   body {
     background-color: rgba(0, 0, 0, 0.904);
     border:8px solid rgb(112, 0, 0);
+    padding: 10px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -23,8 +24,6 @@
   img {
     display: inline-block;
     border:8px solid darkred;
-    margin-left: 20px;
-    margin-top: 20px;
   }
 
   .box:hover img{
