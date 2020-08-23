@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS ostoskorit;
 DROP TABLE IF EXISTS arvostelut;
-
+DROP TABLE IF EXISTS kayttajat;
 DROP TABLE IF EXISTS tuotteet;
 DROP TABLE IF EXISTS tyypit;
 DROP TABLE IF EXISTS osastot;
@@ -39,7 +39,8 @@ CREATE TABLE kayttajat (
     id SERIAL PRIMARY KEY, 
     nimi TEXT UNIQUE NOT NULL, 
     salasana TEXT NOT NULL,
-    superkayttaja BOOLEAN
+    superkayttaja BOOLEAN,
+    mod BOOLEAN
 );
 
 CREATE TABLE arvostelut (
@@ -63,4 +64,5 @@ INSERT INTO osastot (nimi, kuvaus) VALUES ('Vaatteet', 'Vaatteita, puetaan pää
 INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Hattuja', 'Vaatteita päälle', 1);
 INSERT INTO tekijat (nimi, kuvaus) VALUES ('HattujaOy', 'TEHÄÄN HATTUJA');
 INSERT INTO tuotteet (nimi, kuvaus, varastossa, hinta, tekija_id, tyyppi_id) VALUES ('Fedora', 'Hassu hattu haha', 282, 131, 1, 1);
+INSERT INTO kayttajat (nimi, salasana, mod, superkayttaja) VALUES ('testi', '123', false, false);
 INSERT INTO ostoskorit (summa, tuotteet, kayttaja_id) VALUES (0, '{}', 1);
