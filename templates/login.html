@@ -6,7 +6,10 @@
 
 </head>
 <body>
-    
+{% if session.username %}
+    <meta http-equiv="Refresh" content="0; '/'" />
+{% else %}
+
 <a href="/" >
     <h5> The </h5>
     <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
@@ -21,5 +24,6 @@
 </form>
 
 <a href="/luoTunnus" ><button> Luo tunnus </button></a>
+{% endif %}
 </body>
 </html>

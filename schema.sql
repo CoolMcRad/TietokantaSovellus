@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS ostoskorit;
+DROP TABLE IF EXISTS arvostelut;
+
+DROP TABLE IF EXISTS tuotteet;
+DROP TABLE IF EXISTS tyypit;
+DROP TABLE IF EXISTS osastot;
+DROP TABLE IF EXISTS tekijat;
+
 CREATE TABLE osastot (
     id SERIAL PRIMARY KEY, 
     nimi TEXT, 
@@ -50,3 +58,9 @@ CREATE TABLE ostoskorit (
     tuotteet INTEGER[],
     kayttaja_id INTEGER REFERENCES kayttajat
 );
+
+INSERT INTO osastot (nimi, kuvaus) VALUES ('Vaatteet', 'Vaatteita, puetaan päälle.');
+INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Hattuja', 'Vaatteita päälle', 1);
+INSERT INTO tekijat (nimi, kuvaus) VALUES ('HattujaOy', 'TEHÄÄN HATTUJA');
+INSERT INTO tuotteet (nimi, kuvaus, varastossa, hinta, tekija_id, tyyppi_id) VALUES ('Fedora', 'Hassu hattu haha', 282, 131, 1, 1);
+INSERT INTO ostoskorit (summa, tuotteet, kayttaja_id) VALUES (0, '{}', 1);
