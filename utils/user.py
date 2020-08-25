@@ -6,10 +6,16 @@ def newUser(request):
     nimi = request.form["nimi"]
     salasana = request.form["salasana"]
     hash_value = generate_password_hash(salasana)
-    sql = "INSERT INTO kayttajat (nimi, salasana, mod, superkayttaja) VALUES (:nimi, :salasana, False, False)"
-    db.session.execute(sql, {"nimi":nimi, "salasana":hash_value})
-    db.session.commit()
-    return nimi
+    if nimi == "admin":
+        sql = "INSERT INTO kayttajat (nimi, salasana, mod, superkayttaja) VALUES (:nimi, :salasana, True, True)"
+        db.session.execute(sql, {"nimi":nimi, "salasana":hash_value})
+        db.session.commit()
+        return nimi
+    else:
+        sql = "INSERT INTO kayttajat (nimi, salasana, mod, superkayttaja) VALUES (:nimi, :salasana, False, False)"
+        db.session.execute(sql, {"nimi":nimi, "salasana":hash_value})
+        db.session.commit()
+        return nimi
 
 def login(request):
     username = request.form["username"]
