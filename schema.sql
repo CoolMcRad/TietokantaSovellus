@@ -63,6 +63,7 @@ CREATE TABLE ostoskorit (
 INSERT INTO osastot (nimi, kuvaus) VALUES ('Vaatteet', 'Vaatteita, puetaan päälle.');
 INSERT INTO osastot (nimi, kuvaus) VALUES ('Musiikki', 'Musiikki soi korvissa brr');
 INSERT INTO osastot (nimi, kuvaus) VALUES ('Pelit', 'Pelejä pelaamiseen jee');
+INSERT INTO osastot (nimi, kuvaus) VALUES ('Kirjat', 'Kirjoja voi lukea silmämunilla.');
 INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Hattuja', 'Vaatteita päälle', 1);
 INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Rummut', 'Niitä lyödään lujaa', 2);
 INSERT INTO tyypit (nimi, kuvaus, osasto_id) VALUES ('Konsolit', 'Osta PC tyhmä', 3);
