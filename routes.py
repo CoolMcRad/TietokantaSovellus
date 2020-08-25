@@ -24,9 +24,9 @@ def ostoskori():
 
     return render_template("ostoskori.html", summa=summa, tuotteet=tuotteet)
     
-@app.route("/luoTunnus")
-def luoTunnus():
-    return render_template("luoTunnus.html")
+@app.route("/luoTunnus/<string:error>")
+def luoTunnus(error):
+    return render_template("luoTunnus.html", error=error)
 
 @app.route("/osasto/<int:id>")
 def osasto(id):
@@ -101,6 +101,12 @@ def yksiPoisto(id):
 
 @app.route("/signIn",methods=["POST"])
 def signIn():
+    if len(request.form["nimi"]) > 20:
+        return redirect("/luoTunnus/Nimi on liian pitkä")
+    if len(request.form["salasana"]) > 20:
+        return redirect("/luoTunnus/Salasana on liian pitkä")
+    if pages.kayttajaByName(request.form["nimi"]):
+        return redirect("/luoTunnus/Käyttäjänimi on jo käytössä")
     nimi = user.newUser(request)
     add.lisaaKori(pages.kayttajaByName(nimi))
     return redirect("/")

@@ -57,8 +57,9 @@
     background-color: black;
     display: inline-block;
     font-size: 20px;
-    
+    width: 525px;
     margin-left: 20px;
+    margin-bottom: 20px;
     cursor: default;
   }
 
@@ -69,9 +70,25 @@
     background-color: rgba(0, 0, 0, 0.438);
     font-size: 20px;
     margin-left: 20px;
+    resize: none;
   }
 
-  input {
+  input[type=number] {
+    border-bottom:4px solid darkred;
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.438);
+    font-size: 20px;
+    margin-left: 2px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .input {
     border:8px groove white;
     color: white;
     padding: 10px 25px;
@@ -86,7 +103,7 @@
     cursor: pointer;
   }
 
-  input:hover {
+  .input:hover {
     box-shadow: 5px 12px 12px 5px rgba(0,0,0,0.24), 0 15px 15px 0 rgba(68, 2, 2, 0.856);
     border:8px groove darkred;
     background-color: rgba(0, 0, 0, 0.233);

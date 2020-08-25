@@ -42,16 +42,16 @@
   {% endfor %}
 
   {% if summa != 0 %}
-    <div style="border:2px solid rgb(112, 0, 0);margin: 10px;background-color: rgba(75, 63, 63, 0.336);">
-        <form style="float: right;" action="/tilaus" method="POST">
-            <input type="submit" value="Tilaa tuotteet (EI TEE MITÄÄN)">
-        </form>
+    <div style="border:2px solid rgb(112, 0, 0);margin: 10px;background-color: rgba(75, 63, 63, 0.336);padding: 5px;">
         <p style="margin: 10px;">
             Summa on {{ summa }} $
             <form action="/clearKori" method="POST">
-                <input type="submit" value="Tyhjennä Kori">
+                <input class="delbutton" type="submit" value="Tyhjennä Kori">
             </form>
         </p>
+        <form action="/tilaus" method="POST">
+            <input class="input" type="submit" value="Tilaa tuotteet (EI TEE MITÄÄN)">
+        </form>
     </div>
   {% else %}
     <p>Ostoskori on tyhjä !</p>

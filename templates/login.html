@@ -17,13 +17,13 @@
 
 <form action="/login" method="POST">
 <p>Tunnus:<br>
-<input type="text" name="username"></p>
+<input class="input" type="text" name="username" required></p>
 <p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu">
+<input class="input" type="password" name="password" required></p>
+<input class="input" type="submit" value="Kirjaudu">
 </form>
 
-<a href="/luoTunnus" ><button> Luo tunnus </button></a>
+<a href="/luoTunnus/f" ><button> Luo tunnus </button></a>
 {% endif %}
 </body>
 </html>

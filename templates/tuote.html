@@ -27,7 +27,7 @@
 
 {% for nimi,kuvaus,varastossa,hinta in tiedot %}
 
-<img src="/static/tuotteet/{{ nimi }}.jpg" width="300" height="445">
+<img style="margin-left: 5px;margin-top: 10px;" src="/static/tuotteet/{{ nimi }}.jpg" width="300" height="445">
 
 <h1> {{ nimi }} </h1>
 <p> {{ kuvaus }} </p>
@@ -36,7 +36,7 @@
 <p> Tuotteen valmistaja: {{ tekija[0] }}. </p>
 
 <form action="/send-Ostos/{{ t_id }}" method="POST">
-    <input type="submit" value="Lisää Koriin">
+    <input class="input" type="submit" value="Lisää Koriin">
     </form>
 
 {% endfor %}
@@ -46,18 +46,17 @@
     
     Otsikko:
     <br>
-    <textarea name="otsikko" rows="1" cols="40"></textarea>
+    <textarea maxlength="50" name="otsikko" rows="1" cols="40" required></textarea>
     <br>
     Arvostelu:
     <br>
-    <textarea name="teksti" rows="3" cols="40"></textarea>
+    <textarea maxlength="500" name="teksti" rows="3" cols="40" required></textarea>
     <br>
+    <br style="margin-bottom: 5px;">
     Arvosana:
+    <input type="number" name="arvosana" min="0" max="10" required>/10</input>
     <br>
-    <textarea name="arvosana" rows="1" cols="5"></textarea>
-    <br>
-
-    <input type="submit" value="Lähetä">
+    <input class="input" type="submit" value="Lähetä">
     </form>
 
 
