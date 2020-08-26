@@ -82,10 +82,18 @@ def tuotteetById(idt):
 
 def tuotteetPaitsi1(idt, ei_id):
     tuotteet = []
+    maara = 1
     if idt == None:
         return tuotteet
     else:
         for integer in idt[0]:
+            if integer == ei_id:
+                if maara == 0:
+                    tuotteet.append(integer)
+
             if integer != ei_id:
                 tuotteet.append(integer)
+            else:
+                maara = 0
+            
         return tuotteet
