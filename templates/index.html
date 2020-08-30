@@ -1,50 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
-<link rel="shortcut icon" href="/favicon.ico">
+{% extends "layout.html" %}
+{% block content %}
+    <h3>Valitse osasto !</h3>
 
-</head>
-<body>
+    {% for nimi,id in osastot %}
 
-{% if session.username %}
-
-<div class="topnav">
-    <a href="/" >
-        <h5> The </h5>
-        <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
+    <a href="/osasto/{{ id }}">
+        <div class="box">
+            <img src="/static/osastot/{{ nimi }}.jpg" alt={{nimi}} width="700px" height="361px">
+            <h1 class="text">
+                {{nimi}}
+            </h1>
+        </div>
     </a>
-    <p style="font-style: italic;"> 
-        Kirjautunut {{ session.username }}
-    </p>
-    {% if session.super %}
-    <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
-    {% endif %}
-    <a href="/logout"> <button> Kirjaudu ulos </button> </a>
-    <a href="/ostoskori"> <button> Ostoskori </button> </a>
-    <div class="topnav-right">
-      <a href="#search">Haku</a>
-    </div>
-  </div>
-
-<h3>Valitse osasto !</h3>
-
-{% for nimi,id in osastot %}
-
-<a href="/osasto/{{ id }}" >
-<div class="box">
-    <img src="/static/osastot/{{ nimi }}.jpg" alt={{nimi}} width="700px" height="361px">
-    <h1 class="text">
-        {{nimi}}
-    </h1>
-</div>
-</a>
 
 
-{% endfor %}
-
-{% else %}
-    <meta http-equiv="Refresh" content="0; '/log'" />
-{% endif %}
-</body>
-</html>
+    {% endfor %}
+{% endblock %}

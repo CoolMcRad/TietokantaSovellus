@@ -23,7 +23,7 @@ def login(request):
     
     result = db.session.execute("SELECT salasana FROM kayttajat WHERE nimi ilike ANY (array['%s'])"%username)
     kayttaja = result.fetchone()
-    if kayttaja[0] == None:
+    if kayttaja == None:
         print("lol")
     else:
         hash_value = kayttaja[0]

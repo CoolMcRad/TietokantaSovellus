@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
-</head>
-<body>
-
-{% if session.username %}
-    
-<div class="topnav">
-    <a href="/" >
-        <h5> The </h5>
-        <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
-    </a>
-    <p style="font-style: italic;"> 
-        Kirjautunut {{ session.username }}
-    </p>
-    {% if session.super %}
-    <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
-    {% endif %}
-    <a href="/logout"> <button> Kirjaudu ulos </button> </a>
-    <a href="/ostoskori"> <button> Ostoskori </button> </a>
-    <div class="topnav-right">
-      <a href="#search">Haku</a>
-    </div>
-  </div>
+{% extends "layout.html" %}
+{% block content %}
 
 {% for nimi,kuvaus in osastot %}
 
@@ -46,9 +22,4 @@
 <hr>
 {% endfor %}
 
-{% else %}
-    <meta http-equiv="Refresh" content="0; '/'" />
-{% endif %}
-
-</body>
-</html>
+{% endblock %}

@@ -10,6 +10,16 @@ def osastoName(id):
     osastot = result.fetchall()
     return osastot
 
+def tekijaName(id):
+    result = db.session.execute("SELECT nimi, kuvaus FROM tekijat WHERE id = %d" %id)
+    tekija = result.fetchall()
+    return tekija
+
+def tuotteetByTekija(id):
+    result = db.session.execute("SELECT nimi, id FROM tuotteet WHERE tekija_id = %d" %id)
+    tuotteet = result.fetchall()
+    return tuotteet
+
 def tyypitByOsasto(id):
     result = db.session.execute("SELECT nimi, id FROM tyypit WHERE osasto_id = %d" %id)
     tyypit = result.fetchall()
@@ -26,7 +36,7 @@ def tuoteNames(id):
     return tuotteet
 
 def tuoteByTyyppi(id):
-    result = db.session.execute("SELECT nimi, kuvaus, varastossa, hinta FROM tuotteet WHERE id = %d" %id)
+    result = db.session.execute("SELECT nimi, kuvaus, varastossa, hinta, tekija_id FROM tuotteet WHERE id = %d" %id)
     tiedot = result.fetchall()
     return tiedot
 
@@ -95,5 +105,29 @@ def tuotteetPaitsi1(idt, ei_id):
                 tuotteet.append(integer)
             else:
                 maara = 0
-            
+
         return tuotteet
+
+def hakuOsasto(query):
+    sql = "SELECT nimi, id FROM osastot WHERE lower(nimi) LIKE lower(:query)"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    osastot = result.fetchall()
+    return osastot
+
+def hakuTyyppi(query):
+    sql = "SELECT nimi, id FROM tyypit WHERE lower(nimi) LIKE lower(:query)"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    tyypit = result.fetchall()
+    return tyypit
+
+def hakuTuote(query):
+    sql = "SELECT nimi, id FROM tuotteet WHERE lower(nimi) LIKE lower(:query)"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    tuotteet = result.fetchall()
+    return tuotteet
+
+def hakuTekija(query):
+    sql = "SELECT nimi, id FROM tekijat WHERE lower(nimi) LIKE lower(:query)"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    tekijat = result.fetchall()
+    return tekijat

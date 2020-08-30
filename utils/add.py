@@ -71,3 +71,16 @@ def lisaaKori(id):
     sql = "INSERT INTO ostoskorit (summa, tuotteet, kayttaja_id) VALUES (0, '{}', :kayttaja_id)"
     db.session.execute(sql, {"kayttaja_id":kayttaja_id})
     db.session.commit()
+
+def tilaus(tuotteet):
+    for integer in tuotteet:
+        print(integer)
+        db.session.execute("UPDATE tuotteet SET varastossa = varastossa-1 WHERE id = %d"%integer[3])
+
+def lisaaTuotetta(request, id):
+    kpl = request.form["kpl"]
+    result = db.session.execute("SELECT varastossa FROM tuotteet WHERE id = %d"%id)
+    plus = result.fetchall()[0]
+    uusisumma = int(kpl) + plus[0]
+    db.session.execute("UPDATE tuotteet SET varastossa = %d WHERE id = %d"%(uusisumma, id))
+    db.session.commit()

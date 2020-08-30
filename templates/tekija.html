@@ -1,20 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
-{% for nimi,kuvaus in tyypit %}
+{% for nimi,kuvaus in tekija %}
 
 <h3> {{ nimi }} </h3>
 <p>{{ kuvaus }}</p>
 
 {% endfor %}
-
-<p>Tuotteet :</p>
+<p>Tekijan tuotteet: </p>
 <hr>
 {% for nimi,id in tuotteet %}
 
 <a href="/tuote/{{ id }}" >
     <div class="box">
-        <img src="/static/tuotteet/{{ nimi }}.jpg" alt={{nimi}} width="400px" height="250px">
+        <img src="/static/tuotteet/{{ nimi }}.jpg" alt={{nimi}} width="400px" height="206px">
         <h1 class="text">
             {{nimi}}
         </h1>

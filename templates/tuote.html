@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
 
-{% if session.username %}
-
-<div class="topnav">
-    <a href="/" >
-        <h5> The </h5>
-        <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
-    </a>
-    <p style="font-style: italic;"> 
-        Kirjautunut {{ session.username }}
-    </p>
-    {% if session.super %}
-    <a href="/new"> <button> Lisää tuotteita/osastoja </button> </a>
-    {% endif %}
-    <a href="/logout"> <button> Kirjaudu ulos </button> </a>
-    <a href="/ostoskori"> <button> Ostoskori </button> </a>
-    <div class="topnav-right">
-      <a href="#search">Haku</a>
-    </div>
-  </div>
-
-{% for nimi,kuvaus,varastossa,hinta in tiedot %}
+{% for nimi,kuvaus,varastossa,hinta,tekija_id in tiedot %}
 
 <img style="margin-left: 5px;margin-top: 10px;" src="/static/tuotteet/{{ nimi }}.jpg" width="300" height="445">
 
@@ -33,11 +9,23 @@
 <p> {{ kuvaus }} </p>
 <p> Hinta : {{ hinta }} $ </p>
 <p> Varastossa: {{ varastossa }} kappaletta. </p>
-<p> Tuotteen valmistaja: {{ tekija[0] }}. </p>
-
-<form action="/send-Ostos/{{ t_id }}" method="POST">
-    <input class="input" type="submit" value="Lisää Koriin">
+{% if session.super %}
+<div style="float: right;">
+<form action="/lisaaKpl/{{ t_id }}" method="POST">
+    <input type="number" name="kpl" min="0" max="1000" required>(Admin) lisää tuotteita</input>
+    <input class="input" type="submit" value="Lisää">
+</form>
+</div>
+{% endif %}
+<p style="float: left;"> Tuotteen valmistaja:  </p>
+<p><a href="/tekija/{{ tekija_id }}"> <h1 style="font-size: 30px;margin-top: 30px;margin-left: 230px;"> {{ tekija[0] }} </h1> </a></p>
+{% if varastossa < 1 %}
+    <p> Tuote on valitettavasti loppu, eikä sitä voi tilata. </p>
+{% else %}
+    <form action="/send-Ostos/{{ t_id }}" method="POST">
+        <input class="input" type="submit" value="Lisää Koriin">
     </form>
+{% endif %}
 
 {% endfor %}
 
@@ -73,10 +61,4 @@
 
 {% endfor %}
 
-
-{% else %}
-    <meta http-equiv="Refresh" content="0; '/'" />
-{% endif %}
-
-</body>
-</html>
+{% endblock %}

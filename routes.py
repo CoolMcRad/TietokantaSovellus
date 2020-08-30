@@ -21,7 +21,6 @@ def new():
 def ostoskori():
     summa = pages.getSumma(session["username"])[0]
     tuotteet = pages.tuotteetById(pages.koriTuotteet(session["username"]))
-
     return render_template("ostoskori.html", summa=summa, tuotteet=tuotteet)
     
 @app.route("/luoTunnus/<string:error>")
@@ -48,10 +47,21 @@ def tuote(id):
     t_id = id
     return render_template("tuote.html", tiedot=tiedot, tekija=tekija, arvostelut=arvostelut, t_id=t_id)
 
+@app.route("/tekija/<int:id>")
+def tekija(id):
+    tekija = pages.tekijaName(id)
+    tuotteet = pages.tuotteetByTekija(id)
+    return render_template("tekija.html", tekija=tekija, tuotteet=tuotteet)
+
 @app.route("/send-Ar/<int:id>", methods=["POST"])
 def send_Ar(id):
     kay = pages.kayttajaByName(session["username"])[0]
     add.addArvostelu(request, kay, id)
+    return redirect("/tuote/"+(str(id)))
+
+@app.route("/lisaaKpl/<int:id>", methods=["POST"])
+def lisaaKpl(id):
+    add.lisaaTuotetta(request, id)
     return redirect("/tuote/"+(str(id)))
 
 @app.route("/send-O", methods=["POST"])
@@ -99,6 +109,14 @@ def yksiPoisto(id):
         add.lisaaKoriin(mhm_id,integer,koko,summa)
     return redirect("/ostoskori")
 
+@app.route("/tilaus", methods=["POST"])
+def tilaus():
+    summa = pages.getSumma(session["username"])[0]
+    tuotteet = pages.tuotteetById(pages.koriTuotteet(session["username"]))
+    add.tilaus(tuotteet)
+    clearKori()
+    return render_template("tilaus.html", tuotteet=tuotteet, summa=summa)
+
 @app.route("/signIn",methods=["POST"])
 def signIn():
     if len(request.form["nimi"]) > 20:
@@ -124,3 +142,12 @@ def login():
 def logout():
     user.logout()
     return redirect("/")
+
+@app.route("/haku")
+def haku():
+    query = request.args["query"]
+    osastot = pages.hakuOsasto(query)
+    tyypit = pages.hakuTyyppi(query)
+    tuotteet = pages.hakuTuote(query)
+    tekijat = pages.hakuTekija(query)
+    return render_template("haku.html",osastot=osastot, tyypit=tyypit, tuotteet=tuotteet, tekijat=tekijat)

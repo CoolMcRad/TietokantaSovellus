@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/static/styles.css"  >
-</head>
-<body>
-
-<footer>
-    <a href="/" >
-        <h5> The </h5>
-        <h5 style="margin-left: 100px;margin-top: 0px;"> NettiStore </h5>
-    </a>
-    <p> 
-        Kirjautunut {{ session.username }} 
-        <a href="/logout"> <button> Kirjaudu ulos </button> </a>
-    </p>
-</footer>
+{% extends "layout.html" %}
+{% block content %}
 
 <form action="/send-O" method="POST">
     <h2>Osasto:</h2>
@@ -92,5 +77,4 @@
     <input type="submit" value="Lähetä">
     </form>
 
-</body>
-</html>
+{% endblock %}

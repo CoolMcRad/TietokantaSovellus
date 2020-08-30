@@ -7,18 +7,31 @@
     margin-right: 10px;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    
+    background-image: url("/static/bg.png");
   }
   
   footer {
-    display: block;
+    display: flex;
     border:3px solid rgb(112, 0, 0);
     background-color: rgba(75, 63, 63, 0.336);
     text-shadow: 0 0 3px black, 0 0 5px white;
-    margin-left: 10px;
-    margin-right: 70%;
     margin-top: 10px;
-    margin-bottom: 10px;
+  }
+
+  footer h1{
+    font-size: 30px;
+    float: right;
+    position: relative;
+    margin: 0px;
+    margin-left: 66%;
+    background-color: rgba(58, 49, 49, 0.336);
+    padding: 10px;
+  }
+
+  footer h1:hover{
+    background-color: rgba(131, 120, 120, 0.336);
+    border-left:3px solid darkred;
+    border-right:3px solid darkred;
   }
 
   img {
@@ -104,6 +117,30 @@
   }
 
   .input:hover {
+    box-shadow: 5px 12px 12px 5px rgba(0,0,0,0.24), 0 15px 15px 0 rgba(68, 2, 2, 0.856);
+    border:8px groove darkred;
+    background-color: rgba(0, 0, 0, 0.233);
+    text-shadow: 2px 0 0 red, 0 0 20px black;
+    color: black;
+    transition-duration: 0.5s;
+  }
+
+  .log{
+    border:8px groove white;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    transition-duration: 0.5s;
+    font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+    background-color: black;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+
+  .log:hover{
     box-shadow: 5px 12px 12px 5px rgba(0,0,0,0.24), 0 15px 15px 0 rgba(68, 2, 2, 0.856);
     border:8px groove darkred;
     background-color: rgba(0, 0, 0, 0.233);
@@ -305,4 +342,103 @@
 
 .topnav-right {
   float: right;
+}
+
+.bordered{
+  border:3px solid rgb(112, 0, 0);
+  background-color: rgba(75, 63, 63, 0.336);
+  display: inline-block;
+  font-size: 20px;
+  width: 440px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  cursor: default;
+  
+}
+
+.bordered .haussa:hover{
+  background-color: rgba(53, 53, 53, 0.658);
+  border-top:3px solid darkred;
+  border-bottom:3px solid darkred;
+  transition-duration: 0.5s;
+}
+
+.haussa{
+  transition-duration: 0.5s;
+}
+
+.bordered a:link{
+  color: white;
+  transition-duration: 0.5s;
+}
+
+.bordered .haussa:hover a:link, .bordered .haussa:hover a:visited{
+  font-size: 30px;
+  color: black;
+}
+
+.bordered a:link, .bordered a:visited {
+  transition-duration: 0.5s;
+  color: white;
+}
+
+.bordered a:link:active, .bordered a:visited:active {
+  transition-duration: 0.5s;
+  color: white;
+}
+
+form:hover .search{
+  width: 490px;
+  font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+  border:8px groove silver;
+  color: silver;
+  background-color: rgba(0, 0, 0, 0.438);
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  transition-duration: 0.5s;
+}
+
+form:hover .sbutton{
+  border:8px groove silver;
+  color: silver;
+  width: 70px;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  transition-duration: 0.5s;
+  height: 60px;
+}
+
+.sbutton:hover{
+    box-shadow: 5px 12px 12px 5px rgba(0,0,0,0.24), 0 15px 15px 0 rgba(68, 2, 2, 0.856);
+    border:8px groove rgb(114, 73, 73);
+    text-shadow: 2px 0 0 darkred;
+    transition-duration: 0.5s;
+}
+
+.search{
+  border:8px groove darkred;
+  border-right: 0px;
+  margin-left: 5px;
+  width: 2px;
+  font-size: 20px;
+  font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+  background-color: darkred;
+  color: darkred;
+  transition-duration: 0.5s;
+}
+
+.sbutton{
+  color: white;
+  font-family: MingLiU_HKSCS-ExtB, 'Courier New', Courier, monospace;
+  background-color: black;
+  border:8px groove darkred;
+  border-left: 0px;
+  height: 42px;
+  width: 50px;
+  font-size: 20px;
+  margin-right: 5px;
+  transition-duration: 0.5s;
 }

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="bordered">
+    {% if osastot %}
+        <h3> Osastot: </h3>
+        <hr>
+        {% for nimi,id in osastot %}
+            <div class="haussa">
+                <p><a href="/osasto/{{ id }}"> {{ nimi }} </a></p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="bordered">
+    {% if tyypit %}
+        <h3> Tyypit: </h3>
+        <hr>
+        {% for nimi,id in tyypit %}
+            <div class="haussa">
+                <p><a href="/tyyppi/{{ id }}"> {{ nimi }} </a></p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="bordered">
+    {% if tuotteet %}
+        <h3> Tuotteet: </h3>
+        <hr>
+        {% for nimi,id in tuotteet %}
+            <div class="haussa">
+                <p><a href="/tuote/{{ id }}"> {{ nimi }} </a></p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="bordered">
+    {% if tekijat %}
+        <h3> Tekijät: </h3>
+        <hr>
+        {% for nimi,id in tekijat %}
+            <div class="haussa">
+                <p><a href="/tekija/{{ id }}"> {{ nimi }} </a></p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</div>
+
+    {% if not osastot and not tekijat and not tuotteet and not tyypit %}
+        <p> Ei Haku Tuloksia </p>
+    {% endif %}
+
+    {% endblock %}
