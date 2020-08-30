@@ -65,4 +65,11 @@ Tuotteen pitäisi nyt löytyä.
 
 Admin voi lisätä tuotteen määrää varastossa tuotteen sivulla.
 
+## Loppusana
+
+Sivustossa on vielä ongelmia. Kirjautumisessa ei ole virheilmoituksia, mutta se ei onneksi anna erroriakaan.
+Käyttäjän mod booleani jäi käyttämättä, sen piti olla alempi arvoinen admin vaikka työntekijälle.
+Halusin lisätä lisää tuotteita ynnä muuta mutta siinä meni vähän tylsäksi ja niitä on kyllä tarpeeksi.
+Muuten tuntuu, että aika hyvä tuli.
+
 ## Linkki sinne sivuun: https://thenettistore.herokuapp.com/
