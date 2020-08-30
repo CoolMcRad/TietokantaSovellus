@@ -72,4 +72,6 @@ Käyttäjän mod booleani jäi käyttämättä, sen piti olla alempi arvoinen ad
 Halusin lisätä lisää tuotteita ynnä muuta mutta siinä meni vähän tylsäksi ja niitä on kyllä tarpeeksi.
 Muuten tuntuu, että aika hyvä tuli.
 
+Ja haku tulokset näyttää ihan tarkoituksella tuolta. Ei aluksi, mutta tykkään miltä se näyttää.
+
 ## Linkki sinne sivuun: https://thenettistore.herokuapp.com/
